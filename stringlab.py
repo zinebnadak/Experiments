@@ -11,23 +11,23 @@ from menu import print_menu, get_menu_choice
 from stringutils import normalize, extract_initials, check_password
 
 # Function returns True if the text is a palindrome (ignores case, spaces, and punctuation).
-def is_palindrome(text: str) -> bool:
+def is_palindrome(text: str) -> bool:       # Normalize the text to remove spaces, punctuation, and lowercase everything
     normalized = normalize(text)
-    return normalized == normalized[::-1]
+    return normalized == normalized[::-1]       # Check if the normalized text is the same forwards and backwards
 
-
+# The main function that runs the menu-driven application
 def main():
     while True:
-        print_menu()
-        choice = get_menu_choice(5)
+        print_menu()        # Display the menu options to the user
+        choice = get_menu_choice(5)     # Ask the user to choose an option (1–5)
 
-        match choice:
+        match choice:               # Match the user's choice to the correct action
             case 1:
                 text = input("Enter a string to check if it is a palindrome: ")
                 if is_palindrome(text):
-                    print("✅ The string is a palindrome!")
+                    print(" The string is a palindrome!")
                 else:
-                    print("❌ The string is not a palindrome.")
+                    print(" The string is not a palindrome.")
 
             case 2:
                 name = input("Enter a full name: ")
@@ -35,11 +35,11 @@ def main():
                 print(f"Initials: {result}")
 
             case 3:
-                pwd = input("Enter a password to check: ")
+                pwd = input("Enter a password (Min. 8 characters with both uppercase and lowercase letters & punctuation: ")
                 if check_password(pwd):
-                    print("✅ The password is sufficiently secure!")
+                    print(" The password is sufficiently secure!")
                 else:
-                    print("❌ The password does not meet the requirements.")
+                    print(" The password does not meet the requirements.")
 
             case 4:
                 text = input("Enter text to normalize: ")
@@ -50,6 +50,6 @@ def main():
                 print("Exiting the program.")
                 break
 
-if __name__ == "__main__":
+if __name__ == "__main__":      # This ensures the main function only runs if the script is executed directly
     main()
 
