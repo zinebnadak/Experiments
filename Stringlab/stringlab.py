@@ -7,7 +7,7 @@
 # The user should also be able to enter the string to be checked.
 
 
-from menu import print_menu, get_menu_choice
+from Stringlab.menu import print_menu, get_menu_choice
 from stringutils import normalize, extract_initials, check_password
 
 # Function returns True if the text is a palindrome (ignores case, spaces, and punctuation).
